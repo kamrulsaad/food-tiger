@@ -32,12 +32,12 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
             </Link>
 
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-              Welcome to Food Tiger 🐯
+              Welcome to Foodit 🧑‍🍳
             </h2>
 
             <p className="mt-4 leading-relaxed text-white/90">
               All your food cravings end here. Order your favourite food from
-              Food Tiger.
+              Foodit.
             </p>
           </div>
         </section>

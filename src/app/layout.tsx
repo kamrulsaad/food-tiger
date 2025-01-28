@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import Provider from "./Provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -9,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Food Tiger",
+  title: "Food It",
   description: "Your best buddy for your food cravings",
 };
 
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={poppins.className}>{children}</body>
+        <body className={poppins.className}>
+          <Provider>{children}</Provider>
+        </body>
       </html>
     </ClerkProvider>
   );
