@@ -23,7 +23,7 @@ const MobileNav = () => {
         <SheetTitle>
           {isAuthenticated ? (
             <span className="flex items-center font-bold gap-2">
-              <CircleUserRound className="text-orange-500" />
+              <CircleUserRound className="text-primary" />
               {user?.email}
             </span>
           ) : (
@@ -37,7 +37,7 @@ const MobileNav = () => {
           ) : (
             <Button
               onClick={() => loginWithRedirect()}
-              className="flex-1 font-bold bg-orange-500"
+              className="flex-1 font-bold bg-primary"
             >
               Log In
             </Button>

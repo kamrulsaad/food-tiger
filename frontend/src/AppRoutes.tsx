@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-// import Layout from "./layouts/layout";
-// import HomePage from "./pages/HomePage";
+import Layout from "./layouts/layout";
+import HomePage from "./pages/HomePage";
 // import AuthCallbackPage from "./pages/AuthCallbackPage";
 // import UserProfilePage from "./pages/UserProfilePage";
 // import ProtectedRoute from "./auth/ProtectedRoute";
@@ -12,7 +12,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 const AppRoutes = () => {
   return (
     <Routes>
-      {/* <Route
+      <Route
         path="/"
         element={
           <Layout showHero>
@@ -20,7 +20,7 @@ const AppRoutes = () => {
           </Layout>
         }
       />
-      <Route path="/auth-callback" element={<AuthCallbackPage />} />
+      {/* <Route path="/auth-callback" element={<AuthCallbackPage />} />
       <Route
         path="/search/:city"
         element={
