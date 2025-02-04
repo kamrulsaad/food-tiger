@@ -10,9 +10,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { ORDER_STATUS } from "@/config/order-status-config";
 import { useUpdateMyRestaurantOrder } from "@/api/MyRestaurantApi";
 import { useEffect, useState } from "react";
+import { ORDER_STATUS } from "@/config/order-status-config";
 
 type Props = {
   order: Order;
