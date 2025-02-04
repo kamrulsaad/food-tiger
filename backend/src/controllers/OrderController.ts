@@ -36,34 +36,39 @@ type CheckoutSessionRequest = {
 };
 
 const stripeWebhookHandler = async (req: Request, res: Response) => {
-  let event;
+    console.log("Webhook received");
+    console.log("----------");
+    console.log("event: " + req.body);
 
-  try {
-    const sig = req.headers["stripe-signature"];
-    event = STRIPE.webhooks.constructEvent(
-      req.body,
-      sig as string,
-      STRIPE_ENDPOINT_SECRET
-    );
-  } catch (error: any) {
-    console.log(error);
-    return res.status(400).send(`Webhook error: ${error.message}`);
-  }
+    res.status(200).send();
+//   let event;
 
-  if (event.type === "checkout.session.completed") {
-    const order = await Order.findById(event.data.object.metadata?.orderId);
+//   try {
+//     const sig = req.headers["stripe-signature"];
+//     event = STRIPE.webhooks.constructEvent(
+//       req.body,
+//       sig as string,
+//       STRIPE_ENDPOINT_SECRET
+//     );
+//   } catch (error: any) {
+//     console.log(error);
+//     return res.status(400).send(`Webhook error: ${error.message}`);
+//   }
 
-    if (!order) {
-      return res.status(404).json({ message: "Order not found" });
-    }
+//   if (event.type === "checkout.session.completed") {
+//     const order = await Order.findById(event.data.object.metadata?.orderId);
 
-    order.totalAmount = event.data.object.amount_total;
-    order.status = "paid";
+//     if (!order) {
+//       return res.status(404).json({ message: "Order not found" });
+//     }
 
-    await order.save();
-  }
+//     order.totalAmount = event.data.object.amount_total;
+//     order.status = "paid";
 
-  res.status(200).send();
+//     await order.save();
+//   }
+
+//   res.status(200).send();
 };
 
 const createCheckoutSession = async (req: Request, res: Response) => {
